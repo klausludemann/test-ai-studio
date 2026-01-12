@@ -36,9 +36,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center cursor-pointer" onClick={() => onNavigate('home')}>
             <div className="w-8 h-8 bg-gradient-almandine rounded-bl-xl rounded-tr-xl flex items-center justify-center transform rotate-45">
-              <div className="transform -rotate-45 font-display font-black text-xs text-black">A</div>
+              <div className="transform -rotate-45 font-display font-black text-xs text-black">G</div>
             </div>
-            <span className="font-display text-2xl font-black tracking-tighter italic ml-4">ALMANDINE</span>
+            <span className="font-display text-2xl font-black tracking-tighter italic ml-4">G-VERVE</span>
           </div>
           <div className="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
             <a href="#benefits" className="hover:text-white transition-colors">Benefits</a>
@@ -66,7 +66,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               Unleash the <span className="text-gradient">Voltage</span> within
             </h1>
             <p className="text-gray-400 text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 mb-10 font-light leading-relaxed">
-              Engineered for the elite. Almandine delivers ultra-pure energy with zero sugar, zero crash, and unmatched focus.
+              Engineered for the elite. G-Verve delivers ultra-pure energy with zero sugar, zero crash, and unmatched focus.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
               <button 
@@ -86,7 +86,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               <div className="w-64 h-[450px] lg:w-72 lg:h-[550px] bg-gradient-to-b from-[#39ff14] to-[#004d00] rounded-[40px] shadow-[0_0_100px_rgba(57,255,20,0.4)] border-4 border-white/10 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
                 <div className="absolute top-10 w-full text-center">
-                   <h3 className="font-display text-4xl font-black tracking-tighter text-black opacity-80">ALMANDINE</h3>
+                   <h3 className="font-display text-4xl font-black tracking-tighter text-black opacity-80">G-VERVE</h3>
                    <p className="text-[10px] tracking-[0.3em] font-bold text-green-950 uppercase mt-1">Neon Pulse Edition</p>
                 </div>
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
@@ -114,7 +114,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 <i className="fas fa-gem text-2xl text-black"></i>
               </div>
               <h3 className="text-2xl font-bold mb-4 uppercase italic text-[#39ff14]">Crystalline Purity</h3>
-              <p className="text-gray-400 leading-relaxed">Filtered through active garnet substrates for a mineral-rich, ultra-smooth mouthfeel.</p>
+              <p className="text-gray-400 leading-relaxed">Filtered through active high-voltage substrates for a mineral-rich, ultra-smooth mouthfeel.</p>
             </div>
             <div className="glass-card p-10 rounded-3xl hover:border-[#39ff14]/30 transition-all group">
               <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg transform group-hover:rotate-12 transition-transform">
@@ -141,7 +141,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           <div className="glass-card rounded-[40px] p-8 lg:p-20 flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2">
               <h2 className="font-display text-4xl lg:text-5xl font-black mb-6 uppercase italic">Fuel Your <span className="text-[#39ff14]">Vibe</span></h2>
-              <p className="text-gray-400 mb-8 text-lg">Tell us what you're doing, and let Almandine AI generate your personalized performance mantra.</p>
+              <p className="text-gray-400 mb-8 text-lg">Tell us what you're doing, and let G-Verve AI generate your personalized performance mantra.</p>
               
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
                 {['Grinding', 'Gaming', 'Gym', 'Late Night'].map((m) => (
@@ -176,7 +176,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                     <div className="w-20 h-20 bg-black/10 backdrop-blur-md rounded-full mx-auto flex items-center justify-center mb-6 border border-white/20">
                       <i className="fas fa-sparkles text-[#39ff14] text-3xl"></i>
                     </div>
-                    <p className="text-black font-display text-2xl font-black uppercase tracking-widest leading-tight">Almandine AI<br/><span className="text-green-900">Engineered Pulse</span></p>
+                    <p className="text-black font-display text-2xl font-black uppercase tracking-widest leading-tight">G-Verve AI<br/><span className="text-green-900">Engineered Pulse</span></p>
                   </div>
                </div>
             </div>
@@ -192,7 +192,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
               <h2 className="font-display text-4xl lg:text-6xl font-black uppercase tracking-tighter">The Science of <br/><span className="text-gradient">Intensity</span></h2>
             </div>
             <div className="max-w-md text-gray-500 text-sm italic">
-              We don't hide behind proprietary blends. Every milligram of Almandine is calculated for maximum physiological response and cognitive clarity.
+              We don't hide behind proprietary blends. Every milligram of G-Verve is calculated for maximum physiological response and cognitive clarity.
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -251,7 +251,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate('shop')}
                 className="bg-white text-black px-12 py-5 rounded-full font-black uppercase tracking-widest text-lg hover:bg-[#39ff14] hover:text-black transition-all shadow-2xl"
               >
-                Order Almandine Now
+                Order G-Verve Now
               </button>
             </div>
             <div className="mt-12 flex items-center justify-center space-x-8 text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">
@@ -267,7 +267,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
       <footer className="py-12 border-t border-white/5">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-xs font-bold tracking-widest uppercase">
           <div className="flex items-center space-x-2 mb-6 md:mb-0 cursor-pointer" onClick={() => onNavigate('home')}>
-             <span className="font-display text-lg font-black tracking-tighter text-white">ALMANDINE</span>
+             <span className="font-display text-lg font-black tracking-tighter text-white">G-VERVE</span>
           </div>
           <div className="flex space-x-8 mb-6 md:mb-0">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
@@ -281,7 +281,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           </div>
         </div>
         <div className="text-center mt-10 text-[10px] text-gray-800 uppercase tracking-widest">
-          © {new Date().getFullYear()} Almandine Energy. All rights reserved. Spark the Fire.
+          © {new Date().getFullYear()} G-Verve Energy. All rights reserved. Spark the Voltage.
         </div>
       </footer>
     </>

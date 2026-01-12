@@ -29,9 +29,9 @@ const ShopPage: React.FC<ShopPageProps> = ({ onNavigate, products }) => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center cursor-pointer" onClick={() => onNavigate('home')}>
             <div className="w-6 h-6 bg-gradient-almandine rounded flex items-center justify-center transform rotate-45">
-              <div className="transform -rotate-45 font-display font-black text-[10px] text-black">A</div>
+              <div className="transform -rotate-45 font-display font-black text-[10px] text-black">G</div>
             </div>
-            <span className="font-display text-lg font-black tracking-tighter italic ml-3">ALMANDINE</span>
+            <span className="font-display text-lg font-black tracking-tighter italic ml-3">G-VERVE</span>
           </div>
           <div className="flex items-center space-x-6">
             <button onClick={() => onNavigate('home')} className="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Home</button>
@@ -69,7 +69,7 @@ const ShopPage: React.FC<ShopPageProps> = ({ onNavigate, products }) => {
                     {/* 3D Can Visual Component - Neon Green Box Style */}
                     <div className="absolute -bottom-20 right-10 w-32 h-[300px] bg-gradient-to-b from-[#39ff14] to-[#004d00] rounded-[24px] shadow-2xl border-2 border-white/10 transform rotate-12 group-hover:rotate-6 transition-transform duration-500 hidden sm:block">
                       <div className="absolute top-4 w-full text-center">
-                        <span className="font-display text-xl font-black text-black/80">A</span>
+                        <span className="font-display text-xl font-black text-black/80">G</span>
                       </div>
                     </div>
                   </div>
@@ -174,7 +174,7 @@ const ShopPage: React.FC<ShopPageProps> = ({ onNavigate, products }) => {
       {/* Footer */}
       <footer className="py-12 border-t border-white/5 mt-10">
         <div className="container mx-auto px-6 text-center text-gray-800 text-[9px] font-black uppercase tracking-[0.4em]">
-          Almandine Laboratory Grade Energy • Est. 2024
+          G-Verve Laboratory Grade Energy • Est. 2024
         </div>
       </footer>
     </div>

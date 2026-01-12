@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   // Initialize products from localStorage or constants
   useEffect(() => {
-    const savedProducts = localStorage.getItem('almandine_products');
+    const savedProducts = localStorage.getItem('gverve_products');
     if (savedProducts) {
       try {
         setProducts(JSON.parse(savedProducts));
@@ -28,7 +28,7 @@ const App: React.FC = () => {
   // Save to localStorage whenever products change
   useEffect(() => {
     if (products.length > 0) {
-      localStorage.setItem('almandine_products', JSON.stringify(products));
+      localStorage.setItem('gverve_products', JSON.stringify(products));
     }
   }, [products]);
 

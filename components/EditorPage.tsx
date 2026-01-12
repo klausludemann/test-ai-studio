@@ -56,7 +56,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
         <div className="mb-12 flex justify-between items-end">
           <div>
             <h2 className="font-display text-4xl font-black uppercase italic tracking-tighter mb-2">Edit <span className="text-gradient">Database</span></h2>
-            <p className="text-gray-500 text-sm italic">Manage product pricing, visuals, and marketing claims in real-time.</p>
+            <p className="text-gray-500 text-sm italic">Manage G-Verve product pricing, visuals, and marketing claims in real-time.</p>
           </div>
           <div className="flex space-x-4">
             <button 

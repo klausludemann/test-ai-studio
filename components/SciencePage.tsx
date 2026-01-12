@@ -17,9 +17,9 @@ const SciencePage: React.FC<SciencePageProps> = ({ onNavigate }) => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center cursor-pointer" onClick={() => onNavigate('home')}>
             <div className="w-6 h-6 bg-gradient-almandine rounded flex items-center justify-center transform rotate-45">
-              <div className="transform -rotate-45 font-display font-black text-[10px] text-black">A</div>
+              <div className="transform -rotate-45 font-display font-black text-[10px] text-black">G</div>
             </div>
-            <span className="font-display text-lg font-black tracking-tighter italic ml-3">ALMANDINE</span>
+            <span className="font-display text-lg font-black tracking-tighter italic ml-3">G-VERVE</span>
           </div>
           <button 
             onClick={() => onNavigate('home')} 
@@ -38,7 +38,7 @@ const SciencePage: React.FC<SciencePageProps> = ({ onNavigate }) => {
             THE PHYSICS OF <br/><span className="text-gradient">PERFORMANCE</span>
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light italic">
-            Almandine isn't just a drink; it's a bio-molecular interface designed to optimize the human neural network.
+            G-Verve isn't just a drink; it's a bio-molecular interface designed to optimize the human neural network.
           </p>
         </div>
       </section>

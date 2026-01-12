@@ -32,36 +32,36 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Alex Rivera",
     role: "Professional Gamer",
-    text: "Almandine keeps me focused during 12-hour streams without the jittery mess of other brands. It's my secret weapon.",
+    text: "G-Verve keeps me focused during 12-hour streams without the jittery mess of other brands. It's my secret weapon.",
     rating: 5
   },
   {
     name: "Sarah Chen",
     role: "Marathon Runner",
-    text: "I've tried every energy drink out there. Almandine is the only one that feels clean and tastes like premium berries.",
+    text: "I've tried every energy drink out there. G-Verve is the only one that feels clean and tastes like premium berries.",
     rating: 5
   },
   {
     name: "Marcus Thorne",
     role: "Tech Entrepreneur",
-    text: "When I'm pulling an all-nighter for a launch, Almandine is the only thing on my desk. Maximum output, minimal crash.",
+    text: "When I'm pulling an all-nighter for a launch, G-Verve is the only thing on my desk. Maximum output, minimal crash.",
     rating: 5
   }
 ];
 
 export const PRODUCTS_DB: Product[] = [
   {
-    id: 'origin-single',
-    name: 'Almandine Origin Single',
+    id: 'gverve-single',
+    name: 'G-Verve Origin Single',
     price: 4.99,
     picture: 'https://images.unsplash.com/photo-1622543953495-a17ff2158536?auto=format&fit=crop&q=80&w=400',
     claim: 'The Spark that Starts it All',
-    description: 'A single 500ml can of our flagship Garnet-filtered formula.',
+    description: 'A single 500ml can of our flagship Voltage-filtered formula.',
     tag: 'Trial'
   },
   {
-    id: 'origin-12pack',
-    name: 'The Almandine 12-Pack',
+    id: 'gverve-12pack',
+    name: 'The G-Verve 12-Pack',
     price: 39.99,
     picture: 'https://images.unsplash.com/photo-1543253687-c931c8e01820?auto=format&fit=crop&q=80&w=400',
     claim: 'Fuel Your Performance Week',
@@ -69,7 +69,7 @@ export const PRODUCTS_DB: Product[] = [
     tag: 'Popular'
   },
   {
-    id: 'origin-24pack',
+    id: 'gverve-24pack',
     name: 'Mastermind Collective Case',
     price: 69.99,
     picture: 'https://images.unsplash.com/photo-1546272989-40c92939c6c2?auto=format&fit=crop&q=80&w=400',
