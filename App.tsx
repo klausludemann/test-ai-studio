@@ -45,7 +45,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#ff004c] selection:text-white">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#39ff14] selection:text-black">
       {currentPage === 'home' && <LandingPage onNavigate={navigateTo} />}
       {currentPage === 'science' && <SciencePage onNavigate={navigateTo} />}
       {currentPage === 'shop' && <ShopPage onNavigate={navigateTo} products={products} />}

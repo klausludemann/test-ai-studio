@@ -7,7 +7,7 @@ export async function generateAITagline(mood: string): Promise<{ tagline: string
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: `Generate a short, punchy marketing tagline and a one-sentence motivational booster for an energy drink brand called 'Almandine' (named after the deep red garnet stone). The user's current mood/activity is: ${mood}. The tone should be high-performance, premium, and slightly mysterious.`,
+      contents: `Generate a short, punchy marketing tagline and a one-sentence motivational booster for an energy drink brand called 'Almandine'. The brand has a striking 'Neon Green' and 'High Voltage' aesthetic. The user's current mood/activity is: ${mood}. The tone should be electric, high-performance, and futuristic.`,
       config: {
         responseMimeType: "application/json",
         responseSchema: {
@@ -25,8 +25,8 @@ export async function generateAITagline(mood: string): Promise<{ tagline: string
   } catch (error) {
     console.error("AI Generation Error:", error);
     return {
-      tagline: "Spark Your Inner Fire",
-      motivation: "Harness the power of Almandine to crush your goals today."
+      tagline: "Spark Your Inner Voltage",
+      motivation: "Harness the radioactive power of Almandine to crush your goals today."
     };
   }
 }

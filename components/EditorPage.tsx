@@ -40,7 +40,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
       <nav className="fixed top-0 w-full z-50 bg-[#050505]/95 backdrop-blur-md py-4 border-b border-white/10">
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center">
-             <i className="fas fa-tools text-[#ff004c] mr-4"></i>
+             <i className="fas fa-tools text-[#39ff14] mr-4"></i>
              <h1 className="font-display text-lg font-black uppercase italic tracking-tighter">Inventory Manager</h1>
           </div>
           <button 
@@ -67,7 +67,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
             </button>
             <button 
               onClick={handleSave}
-              className="px-8 py-2 bg-gradient-almandine rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform"
+              className="px-8 py-2 bg-gradient-almandine rounded-full text-[10px] font-black text-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform"
             >
               Commit Changes
             </button>
@@ -91,7 +91,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
                       type="text" 
                       value={p.name} 
                       onChange={(e) => handleChange(p.id, 'name', e.target.value)}
-                      className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#ff004c] outline-none transition-colors"
+                      className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#39ff14] outline-none transition-colors"
                     />
                   </div>
                   <div>
@@ -101,7 +101,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
                       step="0.01"
                       value={p.price} 
                       onChange={(e) => handleChange(p.id, 'price', parseFloat(e.target.value))}
-                      className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#ff004c] outline-none transition-colors font-display"
+                      className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#39ff14] outline-none transition-colors font-display"
                     />
                   </div>
                   <div>
@@ -110,7 +110,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
                       type="text" 
                       value={p.claim} 
                       onChange={(e) => handleChange(p.id, 'claim', e.target.value)}
-                      className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#ff004c] outline-none transition-colors italic"
+                      className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#39ff14] outline-none transition-colors italic"
                     />
                   </div>
                 </div>
@@ -121,7 +121,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
                       type="text" 
                       value={p.picture} 
                       onChange={(e) => handleChange(p.id, 'picture', e.target.value)}
-                      className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-[10px] focus:border-[#ff004c] outline-none transition-colors"
+                      className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-[10px] focus:border-[#39ff14] outline-none transition-colors"
                     />
                   </div>
                   <div className="relative">
@@ -129,7 +129,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
                     <div className="aspect-video bg-black rounded-xl border border-white/10 overflow-hidden">
                       <img src={p.picture} className="w-full h-full object-cover opacity-60" alt="Preview" />
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                         <span className="text-[10px] font-black uppercase text-white/20 tracking-[0.5em]">Live Render</span>
+                         <span className="text-[10px] font-black uppercase text-[#39ff14]/20 tracking-[0.5em]">Live Render</span>
                       </div>
                     </div>
                   </div>
@@ -140,7 +140,7 @@ const EditorPage: React.FC<EditorPageProps> = ({ onNavigate, products, onUpdate 
                 <textarea 
                   value={p.description} 
                   onChange={(e) => handleChange(p.id, 'description', e.target.value)}
-                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-xs focus:border-[#ff004c] outline-none transition-colors h-24 resize-none"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-xs focus:border-[#39ff14] outline-none transition-colors h-24 resize-none"
                 />
               </div>
             </div>
