@@ -49,7 +49,7 @@
 <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
   <div class="container mx-auto px-6 flex justify-between items-center">
     <!-- Logo -->
-    <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+    <div class="flex items-center cursor-pointer" onclick="navTo('home'); closeMobileMenu()">
       <div class="w-8 h-8 bg-gradient-almandine rounded-bl-xl rounded-tr-xl flex items-center justify-center transform rotate-45">
         <div class="transform -rotate-45 font-display font-black text-xs text-black">B</div>
       </div>
@@ -345,7 +345,7 @@
   <!-- Footer -->
   <footer class="py-12 border-t border-white/5">
     <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-xs font-bold tracking-widest uppercase">
-      <span class="font-display text-lg font-black tracking-tighter text-white mb-6 md:mb-0 cursor-pointer" onclick="navigate('home')">B-VERVE</span>
+      <span class="font-display text-lg font-black tracking-tighter text-white mb-6 md:mb-0 cursor-pointer" onclick="navTo('home')">B-VERVE</span>
       <div class="flex space-x-8 mb-6 md:mb-0">
         <a href="#" class="hover:text-white transition-colors">Privacy</a>
         <a href="#" class="hover:text-white transition-colors">Terms</a>
@@ -490,7 +490,7 @@
     <section class="py-24 text-center">
       <div class="container mx-auto px-6">
         <p class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-8">Validation complete.</p>
-        <button onclick="navigate('home')" class="bg-white text-black px-12 py-5 rounded-full font-black uppercase tracking-widest text-lg hover:bg-[#00b4ff] hover:text-black transition-all shadow-2xl">
+        <button onclick="navTo('home')" class="bg-white text-black px-12 py-5 rounded-full font-black uppercase tracking-widest text-lg hover:bg-[#00b4ff] hover:text-black transition-all shadow-2xl">
           EXPERIENCE THE SCIENCE
         </button>
       </div>
@@ -693,6 +693,11 @@ window.navigate = function(page) {
 
 // Navigate to a home-page anchor; if not on home, go there first
 window.navTo = function(anchor) {
+  if (anchor === 'home') {
+    if (currentPage !== 'home') navigate('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
   if (currentPage !== 'home') {
     navigate('home');
     setTimeout(() => {
