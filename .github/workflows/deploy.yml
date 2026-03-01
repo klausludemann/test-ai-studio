@@ -20,17 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
-
-      - name: Build
-        run: npm run build
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Prepare dist
+        run: |
+          mkdir -p dist
+          cp index.html dist/index.html
+          cp CNAME dist/CNAME
 
       - uses: actions/upload-pages-artifact@v3
         with:
