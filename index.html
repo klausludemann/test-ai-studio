@@ -43,30 +43,32 @@
      ===================================================================== -->
 <script>window.GEMINI_API_KEY = '';</script>
 
+<!-- =====================================================================
+     SHARED NAV (always visible across all pages)
+     ===================================================================== -->
+<nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+  <div class="container mx-auto px-6 flex justify-between items-center">
+    <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+      <div class="w-8 h-8 bg-gradient-almandine rounded-bl-xl rounded-tr-xl flex items-center justify-center transform rotate-45">
+        <div class="transform -rotate-45 font-display font-black text-xs text-black">B</div>
+      </div>
+      <span class="font-display text-2xl font-black tracking-tighter italic ml-4">B-VERVE</span>
+    </div>
+    <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
+      <button id="nav-benefits" onclick="navTo('benefits')" class="hover:text-white transition-colors uppercase">Benefits</button>
+      <button onclick="navigate('science')" class="hover:text-white transition-colors uppercase">Science</button>
+      <button id="nav-ai-spark" onclick="navTo('ai-spark')" class="hover:text-white transition-colors uppercase">AI Spark</button>
+    </div>
+    <button onclick="navigate('shop')" class="bg-gradient-almandine px-6 py-2 rounded-full text-xs font-bold text-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform shadow-[0_0_20px_rgba(0,180,255,0.3)]">
+      Shop Now
+    </button>
+  </div>
+</nav>
 
 <!-- =====================================================================
      HOME PAGE
      ===================================================================== -->
 <div id="page-home" class="page active">
-
-  <nav id="home-nav" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
-    <div class="container mx-auto px-6 flex justify-between items-center">
-      <div class="flex items-center cursor-pointer" onclick="navigate('home')">
-        <div class="w-8 h-8 bg-gradient-almandine rounded-bl-xl rounded-tr-xl flex items-center justify-center transform rotate-45">
-          <div class="transform -rotate-45 font-display font-black text-xs text-black">B</div>
-        </div>
-        <span class="font-display text-2xl font-black tracking-tighter italic ml-4">B-VERVE</span>
-      </div>
-      <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
-        <a href="#benefits" class="hover:text-white transition-colors">Benefits</a>
-        <button onclick="navigate('science')" class="hover:text-white transition-colors uppercase">Science</button>
-        <a href="#ai-spark" class="hover:text-white transition-colors">AI Spark</a>
-      </div>
-      <button onclick="navigate('shop')" class="bg-gradient-almandine px-6 py-2 rounded-full text-xs font-bold text-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform shadow-[0_0_20px_rgba(0,180,255,0.3)]">
-        Shop Now
-      </button>
-    </div>
-  </nav>
 
   <!-- Hero -->
   <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden">
@@ -241,19 +243,6 @@
      ===================================================================== -->
 <div id="page-science" class="page">
 
-  <nav class="fixed top-0 w-full z-50 bg-[#050505]/90 backdrop-blur-md py-4 border-b border-white/5">
-    <div class="container mx-auto px-6 flex justify-between items-center">
-      <div class="flex items-center cursor-pointer" onclick="navigate('home')">
-        <div class="w-6 h-6 bg-gradient-almandine rounded flex items-center justify-center transform rotate-45">
-          <div class="transform -rotate-45 font-display font-black text-[10px] text-black">B</div>
-        </div>
-        <span class="font-display text-lg font-black tracking-tighter italic ml-3">B-VERVE</span>
-      </div>
-      <button onclick="navigate('home')" class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors flex items-center">
-        <i class="fas fa-arrow-left mr-2"></i> Back to HQ
-      </button>
-    </div>
-  </nav>
 
   <div class="pb-20">
     <section class="pt-32 pb-16 border-b border-white/5 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,180,255,0.05)_0%,_transparent_100%)]">
@@ -389,24 +378,6 @@
      ===================================================================== -->
 <div id="page-shop" class="page min-h-screen bg-[#050505]">
 
-  <nav class="fixed top-0 w-full z-50 bg-[#050505]/95 backdrop-blur-md py-4 border-b border-white/5">
-    <div class="container mx-auto px-6 flex justify-between items-center">
-      <div class="flex items-center cursor-pointer" onclick="navigate('home')">
-        <div class="w-6 h-6 bg-gradient-almandine rounded flex items-center justify-center transform rotate-45">
-          <div class="transform -rotate-45 font-display font-black text-[10px] text-black">B</div>
-        </div>
-        <span class="font-display text-lg font-black tracking-tighter italic ml-3">B-VERVE</span>
-      </div>
-      <div class="flex items-center space-x-6">
-        <button onclick="navigate('home')" class="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Home</button>
-        <button onclick="navigate('science')" class="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Science</button>
-        <div class="relative">
-          <i class="fas fa-shopping-bag text-white opacity-50"></i>
-          <span class="absolute -top-2 -right-2 bg-[#00b4ff] text-[8px] font-black text-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
-        </div>
-      </div>
-    </div>
-  </nav>
 
   <section class="pt-32 pb-24">
     <div class="container mx-auto px-6">
@@ -479,17 +450,6 @@
      ===================================================================== -->
 <div id="page-editor" class="page min-h-screen bg-[#050505] pb-20">
 
-  <nav class="fixed top-0 w-full z-50 bg-[#050505]/95 backdrop-blur-md py-4 border-b border-white/10">
-    <div class="container mx-auto px-6 flex justify-between items-center">
-      <div class="flex items-center">
-        <i class="fas fa-tools text-[#00b4ff] mr-4"></i>
-        <h1 class="font-display text-lg font-black uppercase italic tracking-tighter">Inventory Manager</h1>
-      </div>
-      <button onclick="navigate('shop')" class="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white flex items-center transition-colors">
-        <i class="fas fa-times mr-2"></i> Exit Editor
-      </button>
-    </div>
-  </nav>
 
   <div class="container mx-auto px-6 pt-32 max-w-4xl">
     <div class="mb-12 flex justify-between items-end">
@@ -591,23 +551,45 @@ function saveProducts(list) {
 
 // ── Navigation ────────────────────────────────────────────────────────────────
 
+let currentPage = 'home';
+
 window.navigate = function(page) {
   document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
+  currentPage = page;
   window.scrollTo(0, 0);
+  updateNav();
   if (page === 'shop')   renderShop();
   if (page === 'editor') renderEditor();
 };
 
-// ── Home – scroll nav ─────────────────────────────────────────────────────────
+// Navigate to a home-page anchor; if not on home, go there first
+window.navTo = function(anchor) {
+  if (currentPage !== 'home') {
+    navigate('home');
+    setTimeout(() => {
+      const el = document.getElementById(anchor);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+  } else {
+    const el = document.getElementById(anchor);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('home-nav');
+// ── Shared nav – update background based on page + scroll ────────────────────
+
+function updateNav() {
+  const nav = document.getElementById('main-nav');
   if (!nav) return;
-  nav.className = window.scrollY > 50
-    ? 'fixed top-0 w-full z-50 transition-all duration-300 bg-[#050505]/90 backdrop-blur-md py-4 shadow-2xl'
-    : 'fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6';
-});
+  if (currentPage === 'home' && window.scrollY <= 50) {
+    nav.className = 'fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6';
+  } else {
+    nav.className = 'fixed top-0 w-full z-50 transition-all duration-300 bg-[#050505]/90 backdrop-blur-md py-4 shadow-2xl';
+  }
+}
+
+window.addEventListener('scroll', updateNav);
 
 // ── Home – ingredients grid ───────────────────────────────────────────────────
 
