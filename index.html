@@ -48,20 +48,42 @@
      ===================================================================== -->
 <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
   <div class="container mx-auto px-6 flex justify-between items-center">
+    <!-- Logo -->
     <div class="flex items-center cursor-pointer" onclick="navigate('home')">
       <div class="w-8 h-8 bg-gradient-almandine rounded-bl-xl rounded-tr-xl flex items-center justify-center transform rotate-45">
         <div class="transform -rotate-45 font-display font-black text-xs text-black">B</div>
       </div>
       <span class="font-display text-2xl font-black tracking-tighter italic ml-4">B-VERVE</span>
     </div>
+    <!-- Desktop links -->
     <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
-      <button id="nav-benefits" onclick="navTo('benefits')" class="hover:text-white transition-colors uppercase">Benefits</button>
+      <button onclick="navTo('benefits')" class="hover:text-white transition-colors uppercase">Benefits</button>
       <button onclick="navTo('science')" class="hover:text-white transition-colors uppercase">Science</button>
-      <button id="nav-ai-spark" onclick="navTo('ai-spark')" class="hover:text-white transition-colors uppercase">AI Spark</button>
+      <button onclick="navTo('ai-spark')" class="hover:text-white transition-colors uppercase">AI Spark</button>
     </div>
-    <button onclick="navigate('shop')" class="bg-gradient-almandine px-6 py-2 rounded-full text-xs font-bold text-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform shadow-[0_0_20px_rgba(0,180,255,0.3)]">
+    <!-- Desktop CTA -->
+    <button onclick="navigate('shop')" class="hidden md:block bg-gradient-almandine px-6 py-2 rounded-full text-xs font-bold text-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform shadow-[0_0_20px_rgba(0,180,255,0.3)]">
       Shop Now
     </button>
+    <!-- Hamburger (mobile only) -->
+    <button id="hamburger" onclick="toggleMobileMenu()" class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none">
+      <span class="ham-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="ham-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="ham-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-[#050505]/95 backdrop-blur-md border-t border-white/5">
+    <div class="container mx-auto px-6 py-6 flex flex-col space-y-4 text-sm font-semibold uppercase tracking-widest text-gray-400">
+      <button onclick="navTo('benefits'); closeMobileMenu()" class="text-left hover:text-white transition-colors py-2">Benefits</button>
+      <button onclick="navTo('science'); closeMobileMenu()" class="text-left hover:text-white transition-colors py-2">Science</button>
+      <button onclick="navTo('ai-spark'); closeMobileMenu()" class="text-left hover:text-white transition-colors py-2">AI Spark</button>
+      <div class="pt-2 border-t border-white/10">
+        <button onclick="navigate('shop'); closeMobileMenu()" class="w-full bg-gradient-almandine px-6 py-3 rounded-full text-xs font-bold text-black uppercase tracking-widest active:scale-95 transition-transform shadow-[0_0_20px_rgba(0,180,255,0.3)]">
+          Shop Now
+        </button>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -663,6 +685,7 @@ window.navigate = function(page) {
   document.getElementById('page-' + page).classList.add('active');
   currentPage = page;
   window.scrollTo(0, 0);
+  closeMobileMenu();
   updateNav();
   if (page === 'shop')   renderShop();
   if (page === 'editor') renderEditor();
@@ -683,6 +706,32 @@ window.navTo = function(anchor) {
 };
 
 // ── Shared nav – update background based on page + scroll ────────────────────
+
+window.toggleMobileMenu = function() {
+  const menu = document.getElementById('mobile-menu');
+  const lines = document.querySelectorAll('.ham-line');
+  const open = !menu.classList.contains('hidden');
+  if (open) {
+    menu.classList.add('hidden');
+    lines[0].style.transform = '';
+    lines[1].style.opacity = '';
+    lines[2].style.transform = '';
+  } else {
+    menu.classList.remove('hidden');
+    lines[0].style.transform = 'translateY(8px) rotate(45deg)';
+    lines[1].style.opacity = '0';
+    lines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+  }
+};
+
+window.closeMobileMenu = function() {
+  const menu = document.getElementById('mobile-menu');
+  const lines = document.querySelectorAll('.ham-line');
+  menu.classList.add('hidden');
+  lines[0].style.transform = '';
+  lines[1].style.opacity = '';
+  lines[2].style.transform = '';
+};
 
 function updateNav() {
   const nav = document.getElementById('main-nav');
