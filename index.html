@@ -1,78 +1,858 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>G-Verve Energy | Spark Your Inner Voltage</title>
-    
-    <!-- SEO & Canonical -->
-    <link rel="canonical" href="https://test2.ludemann.com" />
-    <meta name="description" content="G-Verve: The premium energy drink powered by crystalline purity. Zero sugar, zero crash, maximum focus for the elite performer." />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://test2.ludemann.com/" />
-    <meta property="og:title" content="G-Verve Energy | Spark Your Inner Voltage" />
-    <meta property="og:description" content="Precision energy for high-performance humans. Engineered for focus and endurance." />
-    <meta property="og:image" content="https://test2.ludemann.com/og-image.jpg" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G-Verve Energy | Spark Your Inner Voltage</title>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://test2.ludemann.com/" />
-    <meta property="twitter:title" content="G-Verve Energy | Spark Your Inner Voltage" />
-    <meta property="twitter:description" content="Precision energy for high-performance humans. Engineered for focus and endurance." />
+  <link rel="canonical" href="https://test-ai-studio.ludemann.com" />
+  <meta name="description" content="G-Verve: The premium energy drink powered by crystalline purity. Zero sugar, zero crash, maximum focus for the elite performer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://test-ai-studio.ludemann.com/" />
+  <meta property="og:title" content="G-Verve Energy | Spark Your Inner Voltage" />
+  <meta property="og:description" content="Precision energy for high-performance humans. Engineered for focus and endurance." />
+  <meta property="twitter:card" content="summary_large_image" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: #050505;
-        color: #ffffff;
-        scroll-behavior: smooth;
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; scroll-behavior: smooth; }
+    .font-display { font-family: 'Orbitron', sans-serif; }
+    .glass-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+    .text-gradient { background: linear-gradient(135deg,#39ff14,#004d00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .bg-gradient-almandine { background: linear-gradient(135deg,#39ff14,#004d00); }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .page { display: none; }
+    .page.active { display: block; }
+  </style>
+
+  <script type="importmap">
+  { "imports": { "@google/genai": "https://esm.sh/@google/genai@^1.35.0" } }
+  </script>
+</head>
+<body>
+
+<!-- =====================================================================
+     GEMINI API KEY
+     Replace the empty string below with your Gemini API key.
+     The AI tagline feature (AI Spark section) requires this.
+     Leave empty to use the built-in fallback text instead.
+     ===================================================================== -->
+<script>window.GEMINI_API_KEY = '';</script>
+
+
+<!-- =====================================================================
+     HOME PAGE
+     ===================================================================== -->
+<div id="page-home" class="page active">
+
+  <nav id="home-nav" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+        <div class="w-8 h-8 bg-gradient-almandine rounded-bl-xl rounded-tr-xl flex items-center justify-center transform rotate-45">
+          <div class="transform -rotate-45 font-display font-black text-xs text-black">G</div>
+        </div>
+        <span class="font-display text-2xl font-black tracking-tighter italic ml-4">G-VERVE</span>
+      </div>
+      <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
+        <a href="#benefits" class="hover:text-white transition-colors">Benefits</a>
+        <button onclick="navigate('science')" class="hover:text-white transition-colors uppercase">Science</button>
+        <a href="#ai-spark" class="hover:text-white transition-colors">AI Spark</a>
+      </div>
+      <button onclick="navigate('shop')" class="bg-gradient-almandine px-6 py-2 rounded-full text-xs font-bold text-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform shadow-[0_0_20px_rgba(57,255,20,0.3)]">
+        Shop Now
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-[#39ff14]/10 blur-[150px] rounded-full pointer-events-none"></div>
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between relative z-10">
+      <div class="w-full lg:w-1/2 text-center lg:text-left mb-16 lg:mb-0">
+        <div class="inline-block px-4 py-1 rounded-full border border-green-900/50 bg-green-950/20 text-[#39ff14] text-xs font-bold uppercase tracking-widest mb-6">
+          Next-Gen Performance Drink
+        </div>
+        <h1 class="font-display text-5xl lg:text-8xl font-black leading-none tracking-tighter mb-8 uppercase italic">
+          Unleash the <span class="text-gradient">Voltage</span> within
+        </h1>
+        <p class="text-gray-400 text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 mb-10 font-light leading-relaxed">
+          Engineered for the elite. G-Verve delivers ultra-pure energy with zero sugar, zero crash, and unmatched focus.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+          <button onclick="navigate('shop')" class="w-full sm:w-auto bg-white text-black px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-[#39ff14] hover:text-black transition-all active:scale-95 shadow-xl">
+            Get Started
+          </button>
+          <button onclick="navigate('science')" class="w-full sm:w-auto border border-white/20 hover:border-white/50 px-10 py-4 rounded-full font-bold uppercase tracking-widest transition-all">
+            Learn Science
+          </button>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2 flex justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-20"></div>
+        <div class="relative animate-float">
+          <div class="w-64 h-[450px] lg:w-72 lg:h-[550px] bg-gradient-to-b from-[#39ff14] to-[#004d00] rounded-[40px] shadow-[0_0_100px_rgba(57,255,20,0.4)] border-4 border-white/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+            <div class="absolute top-10 w-full text-center">
+              <h3 class="font-display text-4xl font-black tracking-tighter text-black opacity-80">G-VERVE</h3>
+              <p class="text-[10px] tracking-[0.3em] font-bold text-green-950 uppercase mt-1">Neon Pulse Edition</p>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full border-2 border-black/30 flex items-center justify-center">
+                <i class="fas fa-bolt text-black text-xl"></i>
+              </div>
+              <p class="mt-4 text-[8px] uppercase tracking-widest font-black text-black/40">500ml | 0 Sugar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits" class="py-24 bg-white/[0.02]">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="font-display text-4xl lg:text-6xl font-black mb-4 uppercase">For the <span class="text-gradient">1%</span></h2>
+        <p class="text-gray-500 max-w-2xl mx-auto italic">Designed for those who demand more from every second of their day.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card p-10 rounded-3xl hover:border-[#39ff14]/30 transition-all group cursor-pointer" onclick="navigate('science')">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg transform group-hover:rotate-12 transition-transform">
+            <i class="fas fa-gem text-2xl text-black"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 uppercase italic text-[#39ff14]">Crystalline Purity</h3>
+          <p class="text-gray-400 leading-relaxed">Filtered through active high-voltage substrates for a mineral-rich, ultra-smooth mouthfeel.</p>
+        </div>
+        <div class="glass-card p-10 rounded-3xl hover:border-[#39ff14]/30 transition-all group">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg transform group-hover:rotate-12 transition-transform">
+            <i class="fas fa-microchip text-2xl text-black"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 uppercase italic text-[#39ff14]">Neural Focus</h3>
+          <p class="text-gray-400 leading-relaxed">Nootropic-enhanced formula designed to bridge the gap between body and mind.</p>
+        </div>
+        <div class="glass-card p-10 rounded-3xl hover:border-[#39ff14]/30 transition-all group">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg transform group-hover:rotate-12 transition-transform">
+            <i class="fas fa-dna text-2xl text-black"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 uppercase italic text-[#39ff14]">Bio-Optimized</h3>
+          <p class="text-gray-400 leading-relaxed">Bioavailable ingredients ensure your body absorbs every mg of performance power.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Spark -->
+  <section id="ai-spark" class="py-24 relative overflow-hidden">
+    <div class="absolute right-0 top-0 w-[500px] h-[500px] bg-green-600/5 blur-[120px] rounded-full"></div>
+    <div class="container mx-auto px-6">
+      <div class="glass-card rounded-[40px] p-8 lg:p-20 flex flex-col lg:flex-row items-center gap-16">
+        <div class="w-full lg:w-1/2">
+          <h2 class="font-display text-4xl lg:text-5xl font-black mb-6 uppercase italic">Fuel Your <span class="text-[#39ff14]">Vibe</span></h2>
+          <p class="text-gray-400 mb-8 text-lg">Tell us what you're doing, and let G-Verve AI generate your personalized performance mantra.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10" id="mood-buttons"></div>
+          <div id="ai-output" class="bg-black/40 border border-white/5 rounded-2xl p-6 min-h-[160px] flex flex-col justify-center">
+            <p class="text-[#39ff14] font-display text-xl font-bold mb-2 uppercase tracking-tight">"Crystal Clear Energy"</p>
+            <p class="text-gray-300 italic text-lg">"Precision energy for high-performance humans."</p>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 relative">
+          <div class="aspect-square bg-gradient-almandine rounded-[60px] flex items-center justify-center p-12 overflow-hidden">
+            <i class="fas fa-robot text-[120px] lg:text-[180px] text-black/20 absolute -right-10 -bottom-10 transform rotate-12"></i>
+            <div class="text-center z-10">
+              <div class="w-20 h-20 bg-black/10 backdrop-blur-md rounded-full mx-auto flex items-center justify-center mb-6 border border-white/20">
+                <i class="fas fa-sparkles text-[#39ff14] text-3xl"></i>
+              </div>
+              <p class="text-black font-display text-2xl font-black uppercase tracking-widest leading-tight">G-Verve AI<br/><span class="text-green-900">Engineered Pulse</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ingredients -->
+  <section id="ingredients" class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-6">
+        <h2 class="font-display text-4xl lg:text-6xl font-black uppercase tracking-tighter">The Science of <br/><span class="text-gradient">Intensity</span></h2>
+        <p class="max-w-md text-gray-500 text-sm italic">We don't hide behind proprietary blends. Every milligram of G-Verve is calculated for maximum physiological response and cognitive clarity.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="ingredients-grid"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-white/[0.02]">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl font-black uppercase mb-16 tracking-[0.3em] opacity-50 italic">Trusted by the Elite</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left" id="testimonials-grid"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 lg:py-40">
+    <div class="container mx-auto px-6 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-display text-5xl lg:text-8xl font-black mb-10 tracking-tighter uppercase italic leading-none">
+          Stop surviving.<br/><span class="text-gradient underline decoration-[#39ff14]/30">Start conquering.</span>
+        </h2>
+        <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto">Ready to feel the crystalline difference? Your first 12-pack is waiting.</p>
+        <button onclick="navigate('shop')" class="bg-white text-black px-12 py-5 rounded-full font-black uppercase tracking-widest text-lg hover:bg-[#39ff14] hover:text-black transition-all shadow-2xl">
+          Order G-Verve Now
+        </button>
+        <div class="mt-12 flex items-center justify-center space-x-8 text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">
+          <span class="flex items-center"><i class="fas fa-check-circle text-[#39ff14] mr-2"></i> Fast Shipping</span>
+          <span class="flex items-center"><i class="fas fa-check-circle text-[#39ff14] mr-2"></i> Lab Tested</span>
+          <span class="flex items-center"><i class="fas fa-check-circle text-[#39ff14] mr-2"></i> No Crash Guarantee</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-white/5">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-xs font-bold tracking-widest uppercase">
+      <span class="font-display text-lg font-black tracking-tighter text-white mb-6 md:mb-0 cursor-pointer" onclick="navigate('home')">G-VERVE</span>
+      <div class="flex space-x-8 mb-6 md:mb-0">
+        <a href="#" class="hover:text-white transition-colors">Privacy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms</a>
+        <button onclick="navigate('editor')" class="hover:text-white transition-colors uppercase">Admin</button>
+      </div>
+      <div class="flex space-x-6">
+        <a href="#" class="hover:text-[#39ff14] text-lg"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-[#39ff14] text-lg"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-[#39ff14] text-lg"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="text-center mt-10 text-[10px] text-gray-800 uppercase tracking-widest">
+      © <span id="year"></span> G-Verve Energy. All rights reserved. Spark the Voltage.
+    </div>
+  </footer>
+
+</div><!-- end #page-home -->
+
+
+<!-- =====================================================================
+     SCIENCE PAGE
+     ===================================================================== -->
+<div id="page-science" class="page">
+
+  <nav class="fixed top-0 w-full z-50 bg-[#050505]/90 backdrop-blur-md py-4 border-b border-white/5">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+        <div class="w-6 h-6 bg-gradient-almandine rounded flex items-center justify-center transform rotate-45">
+          <div class="transform -rotate-45 font-display font-black text-[10px] text-black">G</div>
+        </div>
+        <span class="font-display text-lg font-black tracking-tighter italic ml-3">G-VERVE</span>
+      </div>
+      <button onclick="navigate('home')" class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors flex items-center">
+        <i class="fas fa-arrow-left mr-2"></i> Back to HQ
+      </button>
+    </div>
+  </nav>
+
+  <div class="pb-20">
+    <section class="pt-32 pb-16 border-b border-white/5 bg-[radial-gradient(circle_at_50%_50%,_rgba(57,255,20,0.05)_0%,_transparent_100%)]">
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-[#39ff14] text-xs font-black uppercase tracking-[0.4em] mb-4">Laboratory Report v3.1</p>
+        <h1 class="font-display text-4xl lg:text-7xl font-black uppercase tracking-tighter italic leading-none mb-6">
+          THE PHYSICS OF <br/><span class="text-gradient">PERFORMANCE</span>
+        </h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg font-light italic">
+          G-Verve isn't just a drink; it's a bio-molecular interface designed to optimize the human neural network.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="order-2 lg:order-1">
+            <div class="w-20 h-2 bg-[#39ff14] mb-10"></div>
+            <h2 class="font-display text-3xl lg:text-4xl font-black uppercase italic mb-8">Phase 01:<br/>Molecular Extraction</h2>
+            <p class="text-gray-400 leading-relaxed text-lg mb-8">
+              Our base liquid undergoes a proprietary Neon-Press cycle. Using naturally sourced high-frequency elements, we strip impurities while mineralizing the solution with specific silicate trace elements.
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="w-10 h-10 border border-[#39ff14]/30 rounded flex items-center justify-center mr-6 flex-shrink-0">
+                  <span class="text-[#39ff14] font-black text-xs">01</span>
+                </div>
+                <div>
+                  <h4 class="font-bold uppercase tracking-wide mb-1 text-[#39ff14]">Crystalline Stabilization</h4>
+                  <p class="text-gray-500 text-sm italic">Harmonizing the molecular clusters of H2O for rapid gastric emptying.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="w-10 h-10 border border-[#39ff14]/30 rounded flex items-center justify-center mr-6 flex-shrink-0">
+                  <span class="text-[#39ff14] font-black text-xs">02</span>
+                </div>
+                <div>
+                  <h4 class="font-bold uppercase tracking-wide mb-1 text-[#39ff14]">Kinetic Enrichment</h4>
+                  <p class="text-gray-500 text-sm italic">Utilizing the unique energy-rich structure to ionize key electrolytes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="aspect-video bg-black rounded-3xl border border-white/10 relative overflow-hidden flex items-center justify-center group">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#39ff14]/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+              <div class="z-10 text-center">
+                <div class="w-32 h-32 border-2 border-[#39ff14] rounded-full mx-auto flex items-center justify-center relative animate-pulse">
+                  <i class="fas fa-bolt text-5xl text-[#39ff14]"></i>
+                  <div class="absolute inset-0 border-4 border-white/5 rounded-full scale-125"></div>
+                </div>
+                <p class="mt-8 text-[10px] uppercase tracking-[0.4em] font-black text-[#39ff14]/40">Molecular Visualization v2.0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white/[0.02] border-y border-white/5">
+      <div class="container mx-auto px-6">
+        <h2 class="font-display text-4xl font-black uppercase tracking-tighter text-center mb-20 italic">Compound <span class="text-[#39ff14]">Analysis</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="bg-black/40 p-10 rounded-[30px] border border-white/5 hover:border-[#39ff14]/20 transition-all">
+            <div class="flex items-center mb-8">
+              <div class="p-4 bg-green-950/20 rounded-2xl mr-6"><i class="fas fa-brain text-2xl text-[#39ff14]"></i></div>
+              <h3 class="text-2xl font-black uppercase italic">The Smart Caffeine Stack</h3>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">Standard energy drinks use synthetic caffeine that causes a spike and a subsequent adrenal crash. We utilize a precise 2:1 ratio of Green Coffee Caffeine and L-Theanine.</p>
+            <ul class="space-y-4 text-sm text-gray-500">
+              <li class="flex items-center"><i class="fas fa-check text-[#39ff14] mr-3"></i> Alpha Wave Production Increase</li>
+              <li class="flex items-center"><i class="fas fa-check text-[#39ff14] mr-3"></i> Peripheral Vasodilation Enhancement</li>
+              <li class="flex items-center"><i class="fas fa-check text-[#39ff14] mr-3"></i> Zero Nervous Jitters</li>
+            </ul>
+          </div>
+          <div class="bg-black/40 p-10 rounded-[30px] border border-white/5 hover:border-[#39ff14]/20 transition-all">
+            <div class="flex items-center mb-8">
+              <div class="p-4 bg-green-950/20 rounded-2xl mr-6"><i class="fas fa-bolt text-2xl text-[#39ff14]"></i></div>
+              <h3 class="text-2xl font-black uppercase italic">Nitric Oxide Fueling</h3>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">By including fermented Red Beet Root, we increase bioavailable nitrates. This leads to higher oxygen delivery to the muscle and brain tissues.</p>
+            <ul class="space-y-4 text-sm text-gray-500">
+              <li class="flex items-center"><i class="fas fa-check text-[#39ff14] mr-3"></i> Mitochondria Efficiency Optimization</li>
+              <li class="flex items-center"><i class="fas fa-check text-[#39ff14] mr-3"></i> Increased V02 Max Utility</li>
+              <li class="flex items-center"><i class="fas fa-check text-[#39ff14] mr-3"></i> Sustained Energy via Natural Bloodflow</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="font-display text-2xl font-black uppercase tracking-[0.3em] mb-12 italic">Performance Metrics</h2>
+        <div class="max-w-5xl mx-auto glass-card p-12 rounded-[40px] border border-[#39ff14]/10">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div>
+              <div class="text-5xl font-black text-[#39ff14] mb-2">94%</div>
+              <div class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Retention of Focus</div>
+              <p class="mt-4 text-sm text-gray-600 italic">Vs. 61% for leading synthetic brands.</p>
+            </div>
+            <div class="border-x border-white/5">
+              <div class="text-5xl font-black text-white mb-2">0.2s</div>
+              <div class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Reaction Time Decrease</div>
+              <p class="mt-4 text-sm text-gray-600 italic">Average improvement in neural response.</p>
+            </div>
+            <div>
+              <div class="text-5xl font-black text-[#39ff14] mb-2">7hrs</div>
+              <div class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Active Peak Energy</div>
+              <p class="mt-4 text-sm text-gray-600 italic">Sustained release without the drop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 text-center">
+      <div class="container mx-auto px-6">
+        <p class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-8">Validation complete.</p>
+        <button onclick="navigate('home')" class="bg-white text-black px-12 py-5 rounded-full font-black uppercase tracking-widest text-lg hover:bg-[#39ff14] hover:text-black transition-all shadow-2xl">
+          EXPERIENCE THE SCIENCE
+        </button>
+      </div>
+    </section>
+  </div>
+
+</div><!-- end #page-science -->
+
+
+<!-- =====================================================================
+     SHOP PAGE
+     ===================================================================== -->
+<div id="page-shop" class="page min-h-screen bg-[#050505]">
+
+  <nav class="fixed top-0 w-full z-50 bg-[#050505]/95 backdrop-blur-md py-4 border-b border-white/5">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+        <div class="w-6 h-6 bg-gradient-almandine rounded flex items-center justify-center transform rotate-45">
+          <div class="transform -rotate-45 font-display font-black text-[10px] text-black">G</div>
+        </div>
+        <span class="font-display text-lg font-black tracking-tighter italic ml-3">G-VERVE</span>
+      </div>
+      <div class="flex items-center space-x-6">
+        <button onclick="navigate('home')" class="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Home</button>
+        <button onclick="navigate('science')" class="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Science</button>
+        <div class="relative">
+          <i class="fas fa-shopping-bag text-white opacity-50"></i>
+          <span class="absolute -top-2 -right-2 bg-[#39ff14] text-[8px] font-black text-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-32 pb-24">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+
+        <!-- Visual column -->
+        <div class="w-full lg:w-1/2">
+          <div class="sticky top-32">
+            <div class="relative group">
+              <div class="aspect-[4/5] bg-gradient-to-br from-green-950/40 to-black rounded-[40px] border border-white/10 relative overflow-hidden shadow-2xl flex items-center justify-center">
+                <img id="shop-main-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="relative z-10 text-center px-8">
+                  <h2 id="shop-img-name" class="font-display text-4xl font-black italic uppercase tracking-tighter mb-2 text-[#39ff14]"></h2>
+                  <p id="shop-img-claim" class="text-[#39ff14] font-black uppercase tracking-[0.3em] text-[10px]"></p>
+                </div>
+                <div class="absolute -bottom-20 right-10 w-32 h-[300px] bg-gradient-to-b from-[#39ff14] to-[#004d00] rounded-[24px] shadow-2xl border-2 border-white/10 transform rotate-12 group-hover:rotate-6 transition-transform duration-500 hidden sm:block">
+                  <div class="absolute top-4 w-full text-center"><span class="font-display text-xl font-black text-black/80">G</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 grid grid-cols-4 gap-4" id="shop-thumbs"></div>
+          </div>
+        </div>
+
+        <!-- Selection column -->
+        <div class="w-full lg:w-1/2">
+          <div class="mb-8">
+            <div class="inline-block px-3 py-1 rounded-full border border-green-900/50 bg-green-950/20 text-[#39ff14] text-[10px] font-black uppercase tracking-widest mb-6 italic">Premium Selection</div>
+            <h1 id="shop-product-name" class="font-display text-4xl lg:text-5xl font-black uppercase tracking-tighter italic mb-4"></h1>
+            <p id="shop-product-claim" class="text-[#39ff14] font-bold text-sm uppercase tracking-widest mb-6 italic"></p>
+            <p id="shop-product-desc" class="text-gray-400 text-lg leading-relaxed italic mb-8"></p>
+            <div class="flex items-baseline space-x-4">
+              <span id="shop-price" class="text-5xl font-black italic text-[#39ff14]"></span>
+              <span id="shop-price-orig" class="text-gray-600 line-through text-lg"></span>
+            </div>
+          </div>
+          <div class="space-y-4 mb-10">
+            <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-4">Select Configuration</p>
+            <div class="grid grid-cols-1 gap-3" id="shop-variants"></div>
+          </div>
+          <div class="space-y-4">
+            <button id="add-to-cart-btn" onclick="handleAddToCart()" class="w-full py-6 rounded-full font-black uppercase tracking-widest text-lg transition-all shadow-[0_10px_40px_rgba(57,255,20,0.2)] flex items-center justify-center bg-white text-black hover:bg-[#39ff14] hover:text-black active:scale-95">
+              <i class="fas fa-shipping-fast mr-3"></i> Secure Order
+            </button>
+            <p class="text-center text-[10px] text-gray-600 uppercase font-black tracking-widest">Secure 256-bit encrypted checkout</p>
+          </div>
+          <div class="mt-12 grid grid-cols-3 gap-6 pt-8 border-t border-white/5">
+            <div class="text-center"><i class="fas fa-gem text-[#39ff14] text-xl mb-3 block"></i><span class="text-[9px] font-black uppercase tracking-widest text-gray-400">Purity</span></div>
+            <div class="text-center"><i class="fas fa-bolt text-[#39ff14] text-xl mb-3 block"></i><span class="text-[9px] font-black uppercase tracking-widest text-gray-400">Velocity</span></div>
+            <div class="text-center"><i class="fas fa-shield-alt text-[#39ff14] text-xl mb-3 block"></i><span class="text-[9px] font-black uppercase tracking-widest text-gray-400">Safety</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 border-t border-white/5">
+    <div class="container mx-auto px-6 text-center text-gray-800 text-[9px] font-black uppercase tracking-[0.4em]">
+      G-Verve Laboratory Grade Energy • Est. 2024
+    </div>
+  </footer>
+
+</div><!-- end #page-shop -->
+
+
+<!-- =====================================================================
+     EDITOR PAGE  (Admin — accessible via the "Admin" link in the footer)
+     ===================================================================== -->
+<div id="page-editor" class="page min-h-screen bg-[#050505] pb-20">
+
+  <nav class="fixed top-0 w-full z-50 bg-[#050505]/95 backdrop-blur-md py-4 border-b border-white/10">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center">
+        <i class="fas fa-tools text-[#39ff14] mr-4"></i>
+        <h1 class="font-display text-lg font-black uppercase italic tracking-tighter">Inventory Manager</h1>
+      </div>
+      <button onclick="navigate('shop')" class="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-white flex items-center transition-colors">
+        <i class="fas fa-times mr-2"></i> Exit Editor
+      </button>
+    </div>
+  </nav>
+
+  <div class="container mx-auto px-6 pt-32 max-w-4xl">
+    <div class="mb-12 flex justify-between items-end">
+      <div>
+        <h2 class="font-display text-4xl font-black uppercase italic tracking-tighter mb-2">Edit <span class="text-gradient">Database</span></h2>
+        <p class="text-gray-500 text-sm italic">Manage G-Verve product pricing, visuals, and marketing claims in real-time.</p>
+      </div>
+      <div class="flex space-x-4">
+        <button onclick="editorReset()" class="px-6 py-2 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white/5 transition-colors">Reset to Default</button>
+        <button onclick="editorSave()" class="px-8 py-2 bg-gradient-almandine rounded-full text-[10px] font-black text-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform">Commit Changes</button>
+      </div>
+    </div>
+    <div id="editor-status" class="hidden mb-8 p-4 bg-green-900/20 border border-green-500/50 rounded-xl text-green-400 text-xs font-bold text-center"></div>
+    <div id="editor-fields" class="space-y-8"></div>
+    <div class="mt-12 p-8 rounded-3xl border border-dashed border-white/10 text-center">
+      <i class="fas fa-plus text-gray-700 text-3xl mb-4 block"></i>
+      <p class="text-gray-700 text-[10px] font-black uppercase tracking-[0.3em]">Module for Adding New SKUs Coming Soon</p>
+    </div>
+  </div>
+
+</div><!-- end #page-editor -->
+
+
+<!-- =====================================================================
+     JAVASCRIPT
+     ===================================================================== -->
+<script type="module">
+import { GoogleGenAI } from '@google/genai';
+
+// ── Product data ──────────────────────────────────────────────────────────────
+// Edit these objects to change products shown in the shop.
+
+const DEFAULT_PRODUCTS = [
+  {
+    id: 'gverve-single',
+    name: 'G-Verve Origin Single',
+    price: 4.99,
+    picture: 'https://images.unsplash.com/photo-1622543953495-a17ff2158536?auto=format&fit=crop&q=80&w=400',
+    claim: 'The Spark that Starts it All',
+    description: 'A single 500ml can of our flagship Voltage-filtered formula.',
+    tag: 'Trial'
+  },
+  {
+    id: 'gverve-12pack',
+    name: 'The G-Verve 12-Pack',
+    price: 39.99,
+    picture: 'https://images.unsplash.com/photo-1543253687-c931c8e01820?auto=format&fit=crop&q=80&w=400',
+    claim: 'Fuel Your Performance Week',
+    description: 'A full case of Origin. Perfect for consistent high-output creators.',
+    tag: 'Popular'
+  },
+  {
+    id: 'gverve-24pack',
+    name: 'Mastermind Collective Case',
+    price: 69.99,
+    picture: 'https://images.unsplash.com/photo-1546272989-40c92939c6c2?auto=format&fit=crop&q=80&w=400',
+    claim: 'Maximum Focus, Minimum Interruption',
+    description: '24 cans for those who refuse to run out of momentum.',
+    tag: 'Best Value'
+  },
+  {
+    id: 'subscription-monthly',
+    name: 'The Flux Subscription',
+    price: 34.99,
+    picture: 'https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&q=80&w=400',
+    claim: 'Never Lose Your Frequency',
+    description: '12 cans delivered monthly. Cancel anytime, stay sharp forever.',
+    tag: 'Elite Member'
+  }
+];
+
+// ── Ingredients (edit to update the "Science of Intensity" section) ───────────
+
+const INGREDIENTS = [
+  { name: 'Natural Caffeine', description: 'Sourced from green coffee beans for sustained release.',  benefit: 'Zero Crash Energy',   icon: 'fa-bolt'      },
+  { name: 'L-Theanine',       description: 'Rare amino acid found in green tea leaves.',               benefit: 'Crystal Clear Focus', icon: 'fa-brain'     },
+  { name: 'Red Beet Root',    description: 'Natural nitrates to enhance blood flow.',                  benefit: 'Endurance Boost',     icon: 'fa-heartbeat' },
+  { name: 'Electrolytes',     description: 'Balanced minerals for rapid hydration.',                   benefit: 'Rapid Recovery',      icon: 'fa-tint'      }
+];
+
+// ── Testimonials (edit to update the social proof section) ───────────────────
+
+const TESTIMONIALS = [
+  { name: 'Alex Rivera',   role: 'Professional Gamer',   rating: 5, text: "G-Verve keeps me focused during 12-hour streams without the jittery mess of other brands. It's my secret weapon." },
+  { name: 'Sarah Chen',    role: 'Marathon Runner',       rating: 5, text: "I've tried every energy drink out there. G-Verve is the only one that feels clean and tastes like premium berries." },
+  { name: 'Marcus Thorne', role: 'Tech Entrepreneur',     rating: 5, text: "When I'm pulling an all-nighter for a launch, G-Verve is the only thing on my desk. Maximum output, minimal crash." }
+];
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function getProducts() {
+  try { return JSON.parse(localStorage.getItem('gverve_products')) || DEFAULT_PRODUCTS; }
+  catch { return DEFAULT_PRODUCTS; }
+}
+
+function saveProducts(list) {
+  localStorage.setItem('gverve_products', JSON.stringify(list));
+}
+
+// ── Navigation ────────────────────────────────────────────────────────────────
+
+window.navigate = function(page) {
+  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo(0, 0);
+  if (page === 'shop')   renderShop();
+  if (page === 'editor') renderEditor();
+};
+
+// ── Home – scroll nav ─────────────────────────────────────────────────────────
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('home-nav');
+  if (!nav) return;
+  nav.className = window.scrollY > 50
+    ? 'fixed top-0 w-full z-50 transition-all duration-300 bg-[#050505]/90 backdrop-blur-md py-4 shadow-2xl'
+    : 'fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6';
+});
+
+// ── Home – ingredients grid ───────────────────────────────────────────────────
+
+const ingGrid = document.getElementById('ingredients-grid');
+INGREDIENTS.forEach(ing => {
+  ingGrid.insertAdjacentHTML('beforeend', `
+    <div class="glass-card p-8 rounded-3xl group hover:bg-[#39ff14]/5 transition-colors cursor-pointer" onclick="navigate('science')">
+      <i class="fas ${ing.icon} text-3xl text-[#39ff14] mb-6 group-hover:scale-110 transition-transform block"></i>
+      <h3 class="text-xl font-bold mb-2 uppercase tracking-wide italic">${ing.name}</h3>
+      <p class="text-[#39ff14] text-[10px] font-black uppercase tracking-[0.2em] mb-4">${ing.benefit}</p>
+      <p class="text-gray-500 text-sm leading-relaxed">${ing.description}</p>
+    </div>`);
+});
+
+// ── Home – testimonials ───────────────────────────────────────────────────────
+
+const testGrid = document.getElementById('testimonials-grid');
+TESTIMONIALS.forEach(t => {
+  const stars = '<i class="fas fa-star text-xs mr-1"></i>'.repeat(t.rating);
+  testGrid.insertAdjacentHTML('beforeend', `
+    <div class="bg-black/50 border border-white/5 p-8 rounded-2xl group hover:border-[#39ff14]/30 transition-colors">
+      <div class="flex text-[#39ff14] mb-6">${stars}</div>
+      <p class="text-gray-300 italic mb-8">"${t.text}"</p>
+      <div class="flex items-center">
+        <div class="w-10 h-10 bg-gradient-almandine rounded-full mr-4 flex items-center justify-center font-bold text-black">${t.name[0]}</div>
+        <div>
+          <h4 class="font-bold text-sm uppercase">${t.name}</h4>
+          <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">${t.role}</p>
+        </div>
+      </div>
+    </div>`);
+});
+
+// ── Home – AI Spark ───────────────────────────────────────────────────────────
+
+const MOODS = ['Grinding', 'Gaming', 'Gym', 'Late Night'];
+let currentMood = MOODS[0];
+
+const moodBtns = document.getElementById('mood-buttons');
+MOODS.forEach(m => {
+  const btn = document.createElement('button');
+  btn.textContent = m;
+  btn.dataset.mood = m;
+  btn.onclick = () => handleMoodChange(m);
+  updateMoodBtn(btn, m === currentMood);
+  moodBtns.appendChild(btn);
+});
+
+function updateMoodBtn(btn, active) {
+  btn.className = `py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${active ? 'bg-white text-black' : 'bg-white/5 text-gray-400 hover:bg-white/10'}`;
+}
+
+async function handleMoodChange(mood) {
+  currentMood = mood;
+  moodBtns.querySelectorAll('button').forEach(b => updateMoodBtn(b, b.dataset.mood === mood));
+
+  const out = document.getElementById('ai-output');
+  out.innerHTML = `
+    <div class="flex items-center space-x-3 text-gray-500 italic">
+      <div style="width:1rem;height:1rem;border:2px solid #39ff14;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite"></div>
+      <span>AI is calculating your frequency...</span>
+    </div>`;
+
+  const result = await generateAITagline(mood);
+  out.innerHTML = `
+    <p class="text-[#39ff14] font-display text-xl font-bold mb-2 uppercase tracking-tight">"${result.tagline}"</p>
+    <p class="text-gray-300 italic text-lg">"${result.motivation}"</p>`;
+}
+
+async function generateAITagline(mood) {
+  const key = window.GEMINI_API_KEY;
+  if (!key) return { tagline: 'Spark Your Inner Voltage', motivation: 'Harness the power of G-Verve to crush your goals today.' };
+  try {
+    const ai = new GoogleGenAI({ apiKey: key });
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.0-flash',
+      contents: `Generate a short, punchy marketing tagline and a one-sentence motivational booster for an energy drink brand called 'G-Verve'. The brand has a striking 'Neon Green' and 'High Voltage' aesthetic. The user's current mood/activity is: ${mood}. The tone should be electric, high-performance, and futuristic.`,
+      config: {
+        responseMimeType: 'application/json',
+        responseSchema: {
+          type: 'object',
+          properties: {
+            tagline:    { type: 'string', description: 'A catchy 3-5 word tagline.' },
+            motivation: { type: 'string', description: 'A short motivational sentence.' }
+          },
+          required: ['tagline', 'motivation']
+        }
       }
-      .font-display {
-        font-family: 'Orbitron', sans-serif;
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .text-gradient {
-        background: linear-gradient(135deg, #39ff14, #004d00);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .bg-gradient-almandine {
-        background: linear-gradient(135deg, #39ff14, #004d00);
-      }
-      @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-20px); }
-      }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      /* Ensure hidden elements for smooth reveal if needed */
-      .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
-      .reveal.active { opacity: 1; transform: translateY(0); }
-    </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
-        "react": "https://esm.sh/react@^19.2.3",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-      }
-    }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+    });
+    return JSON.parse(response.text.trim());
+  } catch {
+    return { tagline: 'Spark Your Inner Voltage', motivation: 'Harness the power of G-Verve to crush your goals today.' };
+  }
+}
+
+// ── Shop ──────────────────────────────────────────────────────────────────────
+
+let selectedProductId = getProducts()[0].id;
+
+function renderShop() {
+  const products = getProducts();
+  const sel = products.find(p => p.id === selectedProductId) || products[0];
+
+  document.getElementById('shop-main-img').src        = sel.picture;
+  document.getElementById('shop-main-img').alt        = sel.name;
+  document.getElementById('shop-img-name').textContent  = sel.name;
+  document.getElementById('shop-img-claim').textContent = sel.claim;
+  document.getElementById('shop-product-name').textContent  = sel.name;
+  document.getElementById('shop-product-claim').textContent = `"${sel.claim}"`;
+  document.getElementById('shop-product-desc').textContent  = sel.description;
+  document.getElementById('shop-price').textContent      = `$${sel.price}`;
+  document.getElementById('shop-price-orig').textContent = `$${(sel.price * 1.25).toFixed(2)}`;
+
+  const thumbs = document.getElementById('shop-thumbs');
+  thumbs.innerHTML = '';
+  products.forEach(p => {
+    thumbs.insertAdjacentHTML('beforeend', `
+      <button onclick="selectProduct('${p.id}')" class="aspect-square rounded-2xl border overflow-hidden transition-all ${p.id === selectedProductId ? 'border-[#39ff14] ring-2 ring-[#39ff14]/20' : 'border-white/10 opacity-50 grayscale hover:opacity-100 hover:grayscale-0'}">
+        <img src="${p.picture}" class="w-full h-full object-cover" alt="${p.name}"/>
+      </button>`);
+  });
+
+  const variants = document.getElementById('shop-variants');
+  variants.innerHTML = '';
+  products.forEach(p => {
+    const active = p.id === selectedProductId;
+    variants.insertAdjacentHTML('beforeend', `
+      <div onclick="selectProduct('${p.id}')" class="p-5 rounded-2xl border transition-all cursor-pointer flex justify-between items-center ${active ? 'border-[#39ff14] bg-green-950/10' : 'border-white/5 bg-white/[0.02] hover:border-white/20'}">
+        <div class="flex items-center">
+          <div class="w-3 h-3 rounded-full mr-4 border ${active ? 'bg-[#39ff14] border-[#39ff14]' : 'border-gray-700'}"></div>
+          <div>
+            <h4 class="font-bold text-sm uppercase italic tracking-tight ${active ? 'text-[#39ff14]' : 'text-white'}">${p.name}</h4>
+            <span class="text-[9px] text-gray-500 uppercase font-black">${p.tag || 'Available'}</span>
+          </div>
+        </div>
+        <div class="font-black italic">$${p.price}</div>
+      </div>`);
+  });
+}
+
+window.selectProduct = function(id) {
+  selectedProductId = id;
+  renderShop();
+};
+
+window.handleAddToCart = function() {
+  const btn = document.getElementById('add-to-cart-btn');
+  btn.innerHTML = '<i class="fas fa-check mr-3"></i> Added to Batch';
+  btn.className = 'w-full py-6 rounded-full font-black uppercase tracking-widest text-lg transition-all flex items-center justify-center bg-green-600 text-white';
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fas fa-shipping-fast mr-3"></i> Secure Order';
+    btn.className = 'w-full py-6 rounded-full font-black uppercase tracking-widest text-lg transition-all shadow-[0_10px_40px_rgba(57,255,20,0.2)] flex items-center justify-center bg-white text-black hover:bg-[#39ff14] hover:text-black active:scale-95';
+  }, 1500);
+};
+
+// ── Editor ────────────────────────────────────────────────────────────────────
+
+function renderEditor() {
+  const products = getProducts();
+  const container = document.getElementById('editor-fields');
+  container.innerHTML = '';
+
+  products.forEach(p => {
+    container.insertAdjacentHTML('beforeend', `
+      <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-colors">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <div>
+              <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Product Name</label>
+              <input type="text" data-id="${p.id}" data-field="name" value="${p.name}" class="editor-input w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#39ff14] outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Price ($)</label>
+              <input type="number" step="0.01" data-id="${p.id}" data-field="price" value="${p.price}" class="editor-input w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#39ff14] outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Marketing Claim</label>
+              <input type="text" data-id="${p.id}" data-field="claim" value="${p.claim}" class="editor-input w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-[#39ff14] outline-none transition-colors italic"/>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Image URL</label>
+              <input type="text" data-id="${p.id}" data-field="picture" value="${p.picture}" class="editor-input w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-[10px] focus:border-[#39ff14] outline-none transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Preview</label>
+              <div class="aspect-video bg-black rounded-xl border border-white/10 overflow-hidden relative">
+                <img src="${p.picture}" class="w-full h-full object-cover opacity-60" data-preview="${p.id}" alt="Preview"/>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span class="text-[10px] font-black uppercase text-[#39ff14]/20 tracking-[0.5em]">Live Render</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 pt-6 border-t border-white/5">
+          <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Detailed Description</label>
+          <textarea data-id="${p.id}" data-field="description" class="editor-input w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-xs focus:border-[#39ff14] outline-none transition-colors h-24 resize-none">${p.description}</textarea>
+        </div>
+      </div>`);
+  });
+
+  // Live image preview
+  container.querySelectorAll('input[data-field="picture"]').forEach(inp => {
+    inp.addEventListener('input', e => {
+      const preview = container.querySelector(`img[data-preview="${e.target.dataset.id}"]`);
+      if (preview) preview.src = e.target.value;
+    });
+  });
+}
+
+window.editorSave = function() {
+  const products = getProducts();
+  document.querySelectorAll('.editor-input').forEach(inp => {
+    const p = products.find(x => x.id === inp.dataset.id);
+    if (p) p[inp.dataset.field] = inp.type === 'number' ? parseFloat(inp.value) : inp.value;
+  });
+  saveProducts(products);
+  showEditorStatus('Changes saved successfully!');
+};
+
+window.editorReset = function() {
+  if (!confirm('Reset all product data to factory defaults?')) return;
+  saveProducts(DEFAULT_PRODUCTS);
+  renderEditor();
+  showEditorStatus('Database reset to defaults.');
+};
+
+function showEditorStatus(msg) {
+  const el = document.getElementById('editor-status');
+  el.textContent = msg;
+  el.classList.remove('hidden');
+  setTimeout(() => el.classList.add('hidden'), 3000);
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Spin keyframe for the AI loading spinner
+const style = document.createElement('style');
+style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+document.head.appendChild(style);
+</script>
+
+</body>
 </html>
