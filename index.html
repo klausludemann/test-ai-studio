@@ -56,7 +56,7 @@
     </div>
     <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-gray-400">
       <button id="nav-benefits" onclick="navTo('benefits')" class="hover:text-white transition-colors uppercase">Benefits</button>
-      <button onclick="navigate('science')" class="hover:text-white transition-colors uppercase">Science</button>
+      <button onclick="navTo('science')" class="hover:text-white transition-colors uppercase">Science</button>
       <button id="nav-ai-spark" onclick="navTo('ai-spark')" class="hover:text-white transition-colors uppercase">AI Spark</button>
     </div>
     <button onclick="navigate('shop')" class="bg-gradient-almandine px-6 py-2 rounded-full text-xs font-bold text-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform shadow-[0_0_20px_rgba(0,180,255,0.3)]">
@@ -88,7 +88,7 @@
           <button onclick="navigate('shop')" class="w-full sm:w-auto bg-white text-black px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-[#00b4ff] hover:text-black transition-all active:scale-95 shadow-xl">
             Get Started
           </button>
-          <button onclick="navigate('science')" class="w-full sm:w-auto border border-white/20 hover:border-white/50 px-10 py-4 rounded-full font-bold uppercase tracking-widest transition-all">
+          <button onclick="navTo('science')" class="w-full sm:w-auto border border-white/20 hover:border-white/50 px-10 py-4 rounded-full font-bold uppercase tracking-widest transition-all">
             Learn Science
           </button>
         </div>
@@ -122,7 +122,7 @@
         <p class="text-gray-500 max-w-2xl mx-auto italic">Designed for those who demand more from every second of their day.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-card p-10 rounded-3xl hover:border-[#00b4ff]/30 transition-all group cursor-pointer" onclick="navigate('science')">
+        <div class="glass-card p-10 rounded-3xl hover:border-[#00b4ff]/30 transition-all group cursor-pointer" onclick="navTo('science')">
           <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg transform group-hover:rotate-12 transition-transform">
             <i class="fas fa-gem text-2xl text-black"></i>
           </div>
@@ -142,6 +142,111 @@
           </div>
           <h3 class="text-2xl font-bold mb-4 uppercase italic text-[#00b4ff]">Bio-Optimized</h3>
           <p class="text-gray-400 leading-relaxed">Bioavailable ingredients ensure your body absorbs every mg of performance power.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Science -->
+  <section id="science" class="py-24 border-t border-white/5">
+    <div class="container mx-auto px-6 text-center mb-16">
+      <p class="text-[#00b4ff] text-xs font-black uppercase tracking-[0.4em] mb-4">Laboratory Report v3.1</p>
+      <h2 class="font-display text-4xl lg:text-7xl font-black uppercase tracking-tighter italic leading-none mb-6">
+        THE PHYSICS OF <br/><span class="text-gradient">PERFORMANCE</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-lg font-light italic">
+        B-Verve isn't just a drink; it's a bio-molecular interface designed to optimize the human neural network.
+      </p>
+    </div>
+
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+        <div class="order-2 lg:order-1">
+          <div class="w-20 h-2 bg-[#00b4ff] mb-10"></div>
+          <h3 class="font-display text-3xl lg:text-4xl font-black uppercase italic mb-8">Phase 01:<br/>Molecular Extraction</h3>
+          <p class="text-gray-400 leading-relaxed text-lg mb-8">
+            Our base liquid undergoes a proprietary Neon-Press cycle. Using naturally sourced high-frequency elements, we strip impurities while mineralizing the solution with specific silicate trace elements.
+          </p>
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="w-10 h-10 border border-[#00b4ff]/30 rounded flex items-center justify-center mr-6 flex-shrink-0">
+                <span class="text-[#00b4ff] font-black text-xs">01</span>
+              </div>
+              <div>
+                <h4 class="font-bold uppercase tracking-wide mb-1 text-[#00b4ff]">Crystalline Stabilization</h4>
+                <p class="text-gray-500 text-sm italic">Harmonizing the molecular clusters of H2O for rapid gastric emptying.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="w-10 h-10 border border-[#00b4ff]/30 rounded flex items-center justify-center mr-6 flex-shrink-0">
+                <span class="text-[#00b4ff] font-black text-xs">02</span>
+              </div>
+              <div>
+                <h4 class="font-bold uppercase tracking-wide mb-1 text-[#00b4ff]">Kinetic Enrichment</h4>
+                <p class="text-gray-500 text-sm italic">Utilizing the unique energy-rich structure to ionize key electrolytes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="aspect-video bg-black rounded-3xl border border-white/10 relative overflow-hidden flex items-center justify-center group">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#00b4ff]/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            <div class="z-10 text-center">
+              <div class="w-32 h-32 border-2 border-[#00b4ff] rounded-full mx-auto flex items-center justify-center relative animate-pulse">
+                <i class="fas fa-bolt text-5xl text-[#00b4ff]"></i>
+                <div class="absolute inset-0 border-4 border-white/5 rounded-full scale-125"></div>
+              </div>
+              <p class="mt-8 text-[10px] uppercase tracking-[0.4em] font-black text-[#00b4ff]/40">Molecular Visualization v2.0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+        <div class="bg-black/40 p-10 rounded-[30px] border border-white/5 hover:border-[#00b4ff]/20 transition-all">
+          <div class="flex items-center mb-8">
+            <div class="p-4 bg-blue-950/20 rounded-2xl mr-6"><i class="fas fa-brain text-2xl text-[#00b4ff]"></i></div>
+            <h3 class="text-2xl font-black uppercase italic">The Smart Caffeine Stack</h3>
+          </div>
+          <p class="text-gray-400 mb-6 leading-relaxed">Standard energy drinks use synthetic caffeine that causes a spike and a subsequent adrenal crash. We utilize a precise 2:1 ratio of Green Coffee Caffeine and L-Theanine.</p>
+          <ul class="space-y-4 text-sm text-gray-500">
+            <li class="flex items-center"><i class="fas fa-check text-[#00b4ff] mr-3"></i> Alpha Wave Production Increase</li>
+            <li class="flex items-center"><i class="fas fa-check text-[#00b4ff] mr-3"></i> Peripheral Vasodilation Enhancement</li>
+            <li class="flex items-center"><i class="fas fa-check text-[#00b4ff] mr-3"></i> Zero Nervous Jitters</li>
+          </ul>
+        </div>
+        <div class="bg-black/40 p-10 rounded-[30px] border border-white/5 hover:border-[#00b4ff]/20 transition-all">
+          <div class="flex items-center mb-8">
+            <div class="p-4 bg-blue-950/20 rounded-2xl mr-6"><i class="fas fa-bolt text-2xl text-[#00b4ff]"></i></div>
+            <h3 class="text-2xl font-black uppercase italic">Nitric Oxide Fueling</h3>
+          </div>
+          <p class="text-gray-400 mb-6 leading-relaxed">By including fermented Red Beet Root, we increase bioavailable nitrates. This leads to higher oxygen delivery to the muscle and brain tissues.</p>
+          <ul class="space-y-4 text-sm text-gray-500">
+            <li class="flex items-center"><i class="fas fa-check text-[#00b4ff] mr-3"></i> Mitochondria Efficiency Optimization</li>
+            <li class="flex items-center"><i class="fas fa-check text-[#00b4ff] mr-3"></i> Increased V02 Max Utility</li>
+            <li class="flex items-center"><i class="fas fa-check text-[#00b4ff] mr-3"></i> Sustained Energy via Natural Bloodflow</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="max-w-5xl mx-auto glass-card p-12 rounded-[40px] border border-[#00b4ff]/10 text-center">
+        <h3 class="font-display text-2xl font-black uppercase tracking-[0.3em] mb-12 italic">Performance Metrics</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div>
+            <div class="text-5xl font-black text-[#00b4ff] mb-2">94%</div>
+            <div class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Retention of Focus</div>
+            <p class="mt-4 text-sm text-gray-600 italic">Vs. 61% for leading synthetic brands.</p>
+          </div>
+          <div class="border-x border-white/5">
+            <div class="text-5xl font-black text-white mb-2">0.2s</div>
+            <div class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Reaction Time Decrease</div>
+            <p class="mt-4 text-sm text-gray-600 italic">Average improvement in neural response.</p>
+          </div>
+          <div>
+            <div class="text-5xl font-black text-[#00b4ff] mb-2">7hrs</div>
+            <div class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Active Peak Energy</div>
+            <p class="mt-4 text-sm text-gray-600 italic">Sustained release without the drop.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -596,7 +701,7 @@ window.addEventListener('scroll', updateNav);
 const ingGrid = document.getElementById('ingredients-grid');
 INGREDIENTS.forEach(ing => {
   ingGrid.insertAdjacentHTML('beforeend', `
-    <div class="glass-card p-8 rounded-3xl group hover:bg-[#00b4ff]/5 transition-colors cursor-pointer" onclick="navigate('science')">
+    <div class="glass-card p-8 rounded-3xl group hover:bg-[#00b4ff]/5 transition-colors cursor-pointer" onclick="navTo('science')">
       <i class="fas ${ing.icon} text-3xl text-[#00b4ff] mb-6 group-hover:scale-110 transition-transform block"></i>
       <h3 class="text-xl font-bold mb-2 uppercase tracking-wide italic">${ing.name}</h3>
       <p class="text-[#00b4ff] text-[10px] font-black uppercase tracking-[0.2em] mb-4">${ing.benefit}</p>
